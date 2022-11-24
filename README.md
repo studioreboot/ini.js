@@ -15,7 +15,7 @@ The ***"parse"*** function takes in a string.
 (string being the actual INI file itself)
 Returning a object which you can traverse yourself.
 
-The ***generate*** function takes in a object.
+The ***"generate"*** function takes in a object.
 This will be turned into a INI file.
 Returns a string that is the INI file itself.
 
