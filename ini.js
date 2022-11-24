@@ -4,16 +4,16 @@ var INI = {
 
         for (let i = 0; i < lines.length; i++) {
             const line = lines[i];
-            if (line.startsWith("[") && line.endsWith("]")) {
+            if (line.trim().startsWith("[") && line.trim().endsWith("]")) {
                 ptr = {};
-                ini[line.substring(1, ini.length - 1)] = ptr;
+                ini[line.substring(1, line.length - 1)] = ptr;
             } else if (line.indexOf("=") != -1 && !line.startsWith(";")) {
                 var name = line.substring(0, line.indexOf("=")).trim(),
                     value = line.substring(line.indexOf("=") + 1, line.length),
                     trimmed = value.trim();
                 if (/true|false/ig.test(trimmed)) {
                     value = trimmed.toLowerCase() === "true";
-                } else if (+trimmed === parseFloat(trimmed)) {
+                } else if (+trimmed == parseFloat(trimmed)) {
                     value = +trimmed;
                 }
                 ptr[name] = value;
@@ -44,6 +44,6 @@ var INI = {
     }
 }
 
-if (module) {
+if ("module" in globalThis) {
     module.exports = INI;
 }
