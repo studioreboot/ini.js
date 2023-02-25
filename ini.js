@@ -82,6 +82,8 @@ var INI = {
     }
 }
 
+Object.freeze(INI)
+
 if ("module" in globalThis) {
     module.exports = INI;
 }
